@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "permanence",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Permanence",
+  "description": "Permanence aims to add more content",
   "authors": [
-    "Me!"
+    "VoxelDragon6"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,11 +19,13 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.vdragondev.permanence.PermanenceMod"
+    ],
+    "client": [
+      "net.vdragondev.permanence.PermanenceClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
@@ -33,5 +35,6 @@
   },
   "suggests": {
     "another-mod": "*"
-  }
+  },
+  "accessWidener": "permanence.aw"
 }
