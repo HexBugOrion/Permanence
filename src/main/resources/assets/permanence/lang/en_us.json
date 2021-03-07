@@ -1,0 +1,26 @@
+{
+  "item.permanence.wooden_mattock": "Wooden Mattock",
+  "item.permanence.stone_mattock": "Stone Mattock",
+  "item.permanence.iron_mattock": "Iron Mattock",
+  "item.permanence.golden_mattock": "Golden Mattock",
+  "item.permanence.diamond_mattock": "Diamond Mattock",
+  "item.permanence.netherite_mattock": "Netherite Mattock",
+  "item.permanence.iron_ore_chunk": "Iron Ore Chunk",
+  "item.permanence.gold_ore_chunk": "Gold Ore Chunk",
+  "item.permanence.netherite_nugget": "Netherite Nugget",
+  "item.permanence.diamond_shard": "Diamond Shard",
+  "item.permanence.emerald_shard": "Emerald Shard",
+  "item.permanence.": "",
+
+  "block.permanence.quern": "Quern",
+  "block.permanence.kiln": "Kiln",
+  "block.permanence.": "",
+
+  "container.quern": "Quern",
+  "container.kiln": "Kiln",
+
+  "enchantment.permanence.damnation": "Damnation",
+  "enchantment.permanence.frost_aspect": "Frost Aspect",
+  "enchantment.permanence.venomous": "Venomous",
+  "enchantment.permanence.heroism": "Heroism"
+}

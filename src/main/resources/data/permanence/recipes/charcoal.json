@@ -1,0 +1,9 @@
+{
+  "type": "permanence:kiln",
+  "ingredient": {
+    "tag": "minecraft:logs_that_burn"
+  },
+  "result": "minecraft:charcoal",
+  "experience": 0.1,
+  "cookingtime": 100
+}

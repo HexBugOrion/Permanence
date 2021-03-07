@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "permanence:block/quern_top",
+    "front": "permanence:block/quern_front",
+    "side": "permanence:block/quern_side"
+  }
+}

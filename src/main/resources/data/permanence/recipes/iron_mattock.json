@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#/ ",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_ingot"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "permanence:iron_mattock",
+        "count": 1
+    },
+    "group": "iron_mattock"
+}

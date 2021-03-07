@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "permanence:netherite_mattock",
+    "permanence:diamond_mattock",
+    "permanence:iron_mattock",
+    "permanence:stone_mattock",
+    "permanence:wooden_mattock",
+    "permanence:golden_mattock"
+  ]
+}
