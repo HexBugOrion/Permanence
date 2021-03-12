@@ -1,0 +1,9 @@
+{
+  "type": "permanence:kiln",
+  "ingredient": {
+    "item": "minecraft:blue_stained_glass"
+  },
+  "result": "permanence:blue_crystal",
+  "experience": 0.1,
+  "cookingtime": 100
+}

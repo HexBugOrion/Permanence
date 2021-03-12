@@ -1,0 +1,9 @@
+{
+  "type": "permanence:kiln",
+  "ingredient": {
+    "item": "minecraft:orange_stained_glass"
+  },
+  "result": "permanence:orange_crystal",
+  "experience": 0.1,
+  "cookingtime": 100
+}

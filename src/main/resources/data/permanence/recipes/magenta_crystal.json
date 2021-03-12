@@ -1,0 +1,9 @@
+{
+  "type": "permanence:kiln",
+  "ingredient": {
+    "item": "minecraft:magenta_stained_glass"
+  },
+  "result": "permanence:magenta_crystal",
+  "experience": 0.1,
+  "cookingtime": 100
+}

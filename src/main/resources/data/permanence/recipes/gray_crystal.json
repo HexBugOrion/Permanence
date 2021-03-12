@@ -1,0 +1,9 @@
+{
+  "type": "permanence:kiln",
+  "ingredient": {
+    "item": "minecraft:gray_stained_glass"
+  },
+  "result": "permanence:gray_crystal",
+  "experience": 0.1,
+  "cookingtime": 100
+}
