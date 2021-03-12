@@ -1,5 +1,6 @@
 package net.vdragondev.permanence;
 
+import com.google.common.collect.ImmutableSet;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -26,12 +27,16 @@ import net.vdragondev.permanence.enchantments.FrostAspectEnchantment;
 import net.vdragondev.permanence.enchantments.HeroismEnchantment;
 import net.vdragondev.permanence.enchantments.VenomousEnchantment;
 import net.vdragondev.permanence.kiln.*;
+import net.vdragondev.permanence.mats.PermaToolMaterials;
 import net.vdragondev.permanence.quern.QuernBlockEntity;
 import net.vdragondev.permanence.quern.QuernFurnace;
 import net.vdragondev.permanence.quern.QuernRecipe;
 import net.vdragondev.permanence.quern.QuernScreenHandler;
+import net.vdragondev.permanence.toolstuff.DrillToolItem;
 import net.vdragondev.permanence.toolstuff.MattockItem;
+import net.vdragondev.permanence.toolstuff.UnvanishableToolItem;
 
+import java.util.Set;
 import java.util.function.ToIntFunction;
 
 public class PermanenceMod implements ModInitializer {
@@ -51,6 +56,7 @@ public class PermanenceMod implements ModInitializer {
 	public static final Item DIAMOND_SHARD = new Item(new Item.Settings().group(ItemGroup.MISC));
 	public static final Item EMERALD_SHARD = new Item(new Item.Settings().group(ItemGroup.MISC));
 	//tools
+    public static final UnvanishableToolItem BASIC_DRILL = new DrillToolItem(2, -1, PermaToolMaterials.BASIC_MACHINE, ImmutableSet.of(Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, new Block[]{Blocks.CLAY, Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.FARMLAND, Blocks.GRASS_BLOCK, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, Blocks.RED_SAND, Blocks.SNOW_BLOCK, Blocks.SNOW, Blocks.SOUL_SAND, Blocks.GRASS_PATH, Blocks.WHITE_CONCRETE_POWDER, Blocks.ORANGE_CONCRETE_POWDER, Blocks.MAGENTA_CONCRETE_POWDER, Blocks.LIGHT_BLUE_CONCRETE_POWDER, Blocks.YELLOW_CONCRETE_POWDER, Blocks.LIME_CONCRETE_POWDER, Blocks.PINK_CONCRETE_POWDER, Blocks.GRAY_CONCRETE_POWDER, Blocks.LIGHT_GRAY_CONCRETE_POWDER, Blocks.CYAN_CONCRETE_POWDER, Blocks.PURPLE_CONCRETE_POWDER, Blocks.BLUE_CONCRETE_POWDER, Blocks.BROWN_CONCRETE_POWDER, Blocks.GREEN_CONCRETE_POWDER, Blocks.RED_CONCRETE_POWDER, Blocks.BLACK_CONCRETE_POWDER, Blocks.SOUL_SOIL, Blocks.POWERED_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.NETHER_GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, Blocks.PACKED_ICE, Blocks.BLUE_ICE, Blocks.RAIL, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.CHISELED_SANDSTONE, Blocks.CUT_SANDSTONE, Blocks.CHISELED_RED_SANDSTONE, Blocks.CUT_RED_SANDSTONE, Blocks.RED_SANDSTONE, Blocks.STONE, Blocks.GRANITE, Blocks.POLISHED_GRANITE, Blocks.DIORITE, Blocks.POLISHED_DIORITE, Blocks.ANDESITE, Blocks.POLISHED_ANDESITE, Blocks.STONE_SLAB, Blocks.SMOOTH_STONE_SLAB, Blocks.SANDSTONE_SLAB, Blocks.PETRIFIED_OAK_SLAB, Blocks.COBBLESTONE_SLAB, Blocks.BRICK_SLAB, Blocks.STONE_BRICK_SLAB, Blocks.NETHER_BRICK_SLAB, Blocks.QUARTZ_SLAB, Blocks.RED_SANDSTONE_SLAB, Blocks.PURPUR_SLAB, Blocks.SMOOTH_QUARTZ, Blocks.SMOOTH_RED_SANDSTONE, Blocks.SMOOTH_SANDSTONE, Blocks.SMOOTH_STONE, Blocks.STONE_BUTTON, Blocks.STONE_PRESSURE_PLATE, Blocks.POLISHED_GRANITE_SLAB, Blocks.SMOOTH_RED_SANDSTONE_SLAB, Blocks.MOSSY_STONE_BRICK_SLAB, Blocks.POLISHED_DIORITE_SLAB, Blocks.MOSSY_COBBLESTONE_SLAB, Blocks.END_STONE_BRICK_SLAB, Blocks.SMOOTH_SANDSTONE_SLAB, Blocks.SMOOTH_QUARTZ_SLAB, Blocks.GRANITE_SLAB, Blocks.ANDESITE_SLAB, Blocks.RED_NETHER_BRICK_SLAB, Blocks.POLISHED_ANDESITE_SLAB, Blocks.DIORITE_SLAB, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX, Blocks.PISTON, Blocks.STICKY_PISTON, Blocks.PISTON_HEAD}), new Item.Settings().group(ItemGroup.TOOLS));
 	public static final ToolItem WOODEN_MATTOCK = new MattockItem(2, -3,ToolMaterials.WOOD, new Item.Settings().group(ItemGroup.TOOLS));
 	public static final ToolItem STONE_MATTOCK = new MattockItem(3, -3,ToolMaterials.STONE, new Item.Settings().group(ItemGroup.TOOLS));
 	public static final ToolItem IRON_MATTOCK = new MattockItem(3, -3,ToolMaterials.IRON, new Item.Settings().group(ItemGroup.TOOLS));
@@ -60,28 +66,28 @@ public class PermanenceMod implements ModInitializer {
 	//blocks
 	public static final Block QUERN;
 	public static final Block KILN;
-  public static final Block ANDESITE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(1,1));
+  public static final Block ANDESITE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(1,1).requiresTool());
 	public static final Block PROPULSION_GEL = new PropulsionGelBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(0,0).slipperiness(0.1f).sounds(BlockSoundGroup.SLIME));
-  public static final Block BLAST_GLASS = new BlockableBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block BLAST_GLASS_MKII = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.GLASS).nonOpaque());
+  public static final Block BLAST_GLASS = new BlockableBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block BLAST_GLASS_MKII = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
   public static final Block FRAMED_GLASS = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block FRAMED_GLASS_PANE = new CustomPaneBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block WHITE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.WHITE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block ORANGE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.ORANGE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block MAGENTA_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.MAGENTA).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block LIGHT_BLUE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.LIGHT_BLUE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block YELLOW_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.YELLOW).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block LIME_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.LIME).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block PINK_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.PINK).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block GRAY_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block LIGHT_GRAY_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.LIGHT_GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block CYAN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.CYAN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block PURPLE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.PURPLE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block BLUE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLUE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block BROWN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BROWN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block GREEN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GREEN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block RED_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.RED).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
-  public static final Block BLACK_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
+  public static final Block FRAMED_GLASS_PANE = new CustomPaneBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block WHITE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.WHITE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block ORANGE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.ORANGE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block MAGENTA_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.MAGENTA).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block LIGHT_BLUE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.LIGHT_BLUE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block YELLOW_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.YELLOW).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block LIME_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.LIME).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block PINK_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.PINK).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block GRAY_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block LIGHT_GRAY_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.LIGHT_GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block CYAN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.CYAN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block PURPLE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.PURPLE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block BLUE_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLUE).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block BROWN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BROWN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block GREEN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GREEN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block RED_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.RED).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block BLACK_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
 
   //blockEntities
 	public static final BlockEntityType QUERN_TYPE;
@@ -157,6 +163,7 @@ public class PermanenceMod implements ModInitializer {
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "diamond_shard"), DIAMOND_SHARD);
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "emerald_shard"), EMERALD_SHARD);
 	  //tools
+    Registry.register(Registry.ITEM, new Identifier(MOD_ID, "basic_drill"), BASIC_DRILL);
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "netherite_mattock"), NETHERITE_MATTOCK);
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "diamond_mattock"), DIAMOND_MATTOCK);
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "iron_mattock"), IRON_MATTOCK);

@@ -2,7 +2,7 @@
 
 ## Project Scope
 
-This project aims to add to Vanilla in stages, starting in a private 1.16 build, then going public once 1.16 is out.
+This project aims to add to Vanilla in stages, starting in a private 1.16 build, then going public once 1.17 is out.
 
 ## License
 
