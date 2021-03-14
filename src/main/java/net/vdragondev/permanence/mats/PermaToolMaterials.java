@@ -1,19 +1,22 @@
 package net.vdragondev.permanence.mats;
 
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Lazy;
+import net.vdragondev.permanence.PermanenceMod;
 
 import java.util.function.Supplier;
 
 public enum  PermaToolMaterials implements ToolMaterial {
-    BASIC_MACHINE(3, 2031, 8.0F, 3.0F, 0, () -> {
-        return Ingredient.ofItems(new ItemConvertible[]{Items.COAL});
+    BASIC_MACHINE(2, 2000, 8.0F, 3.0F, 0, () -> {
+        return Ingredient.ofItems((ItemConvertible) ItemTags.LOGS_THAT_BURN);
     }),
-    ADVANCED_MACHINE(3, 2031, 8.0F, 3.0F, 0, () -> {
-        return Ingredient.ofItems(new ItemConvertible[]{Items.COAL_BLOCK});
+    ENHANCED_MACHINE(3, 2000, 8.0F, 3.0F, 0, () -> {
+        return Ingredient.ofItems((ItemConvertible) ItemTags.COALS);
+    }),
+    ADVANCED_MACHINE(4, 18000, 8.0F, 3.0F, 0, () -> {
+        return Ingredient.ofItems(new ItemConvertible[]{PermanenceMod.BITUMEN});
     });
 
     private final int miningLevel;

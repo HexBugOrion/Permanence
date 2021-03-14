@@ -4,8 +4,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.block.piston.PistonBehavior;
 
-public class ImmobleDoor extends DoorBlock {
-    public ImmobleDoor(Settings settings) {
+public class ImmobileDoor extends DoorBlock {
+    public ImmobileDoor(Settings settings) {
         super(settings);
     }
     public PistonBehavior getPistonBehavior(BlockState state) {

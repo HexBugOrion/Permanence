@@ -60,4 +60,10 @@ public class UnvanishableToolItem extends NewToolItem {
     public float getAttackDamage() {
         return this.attackDamage;
     }
+
+    @Override public boolean isUsable(ItemStack stack) {
+        return super.isUsable(stack);
+    }
+
+    // /give @p permanence:advanced_drill{Damage:17998} 1
 }
