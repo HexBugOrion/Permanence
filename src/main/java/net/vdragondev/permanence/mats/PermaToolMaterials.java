@@ -12,9 +12,6 @@ public enum  PermaToolMaterials implements ToolMaterial {
     BASIC_MACHINE(3, 2031, 8.0F, 3.0F, 0, () -> {
         return Ingredient.ofItems(new ItemConvertible[]{Items.COAL});
     }),
-    PICKFINDER(3, 2031, 8.0F, 3.0F, 0, () -> {
-        return Ingredient.ofItems(new ItemConvertible[]{Items.STONE_PICKAXE});
-    }),
     ADVANCED_MACHINE(3, 2031, 8.0F, 3.0F, 0, () -> {
         return Ingredient.ofItems(new ItemConvertible[]{Items.COAL_BLOCK});
     });

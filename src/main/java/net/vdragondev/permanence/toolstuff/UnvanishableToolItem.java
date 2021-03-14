@@ -9,16 +9,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.item.ElytraItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Set;
 
-public class UnvanishableToolItem extends ToolItem {
+public class UnvanishableToolItem extends NewToolItem {
     private final Set<Block> effectiveBlocks;
     protected final float miningSpeed;
     private final float attackDamage;
@@ -34,11 +31,6 @@ public class UnvanishableToolItem extends ToolItem {
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
-
-    public static boolean isUsable(ItemStack stack) {
-        return stack.getDamage() < stack.getMaxDamage();
-    }
-    //give @p permanence:basic_drill{Damage:2031} 1
 
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
         return this.effectiveBlocks.contains(state.getBlock()) ? this.miningSpeed : 1.0F;
