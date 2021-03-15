@@ -19,7 +19,6 @@ public class DrillToolItem extends UnvanishableToolItem {
     }
     public boolean isEffectiveOn(BlockState state) {
         int i = this.getMaterial().getMiningLevel();
-        if (isUsable()) {
             if (!state.isOf(Blocks.OBSIDIAN) && !state.isOf(Blocks.CRYING_OBSIDIAN) && !state.isOf(Blocks.NETHERITE_BLOCK) && !state.isOf(Blocks.RESPAWN_ANCHOR) && !state
                 .isOf(Blocks.ANCIENT_DEBRIS)) {
                 if (!state.isOf(Blocks.DIAMOND_BLOCK) && !state.isOf(Blocks.DIAMOND_ORE) && !state.isOf(Blocks.EMERALD_ORE) && !state.isOf(Blocks.EMERALD_BLOCK) && !state
@@ -37,7 +36,6 @@ public class DrillToolItem extends UnvanishableToolItem {
             } else {
                 return i >= 3;
             }
-        }
     }
 
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
