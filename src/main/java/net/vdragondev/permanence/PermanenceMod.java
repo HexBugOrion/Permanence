@@ -69,7 +69,7 @@ public class PermanenceMod implements ModInitializer {
   public static final Block ANDESITE_DOOR = new StandardDoor(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).sounds(BlockSoundGroup.STONE).strength(1.5f, 6.0f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().nonOpaque());
   public static final Block DIORITE_DOOR = new StandardDoor(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).sounds(BlockSoundGroup.STONE).strength(1.5f, 6.0f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().nonOpaque());
   public static final Block GRANITE_DOOR = new StandardDoor(FabricBlockSettings.of(Material.STONE, MaterialColor.GRAY).sounds(BlockSoundGroup.STONE).strength(1.5f, 6.0f).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().nonOpaque());
-	public static final Block PROPULSION_GEL = new PropulsionGelBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(0,0).slipperiness(0.1f).sounds(BlockSoundGroup.SLIME));
+	public static final Block PROPULSION_GEL = new PropulsionGelBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT, MaterialColor.ORANGE).strength(0,0).slipperiness(0.1f).sounds(BlockSoundGroup.SLIME));
   public static final Block BLAST_GLASS = new ImmobileBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
   public static final Block BLAST_GLASS_MKII = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES, 3).requiresTool());
   public static final Block FRAMED_GLASS = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GRAY).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque());
@@ -90,6 +90,7 @@ public class PermanenceMod implements ModInitializer {
   public static final Block GREEN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GREEN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
   public static final Block RED_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.RED).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
   public static final Block BLACK_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
+  public static final Block BLOCK_OF_BITUMEN = new BitumenBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT, MaterialColor.BLACK).strength(0,0).slipperiness(0.1f).sounds(BlockSoundGroup.SLIME));
 
   //blockEntities
 	public static final BlockEntityType QUERN_TYPE;
@@ -201,7 +202,8 @@ public class PermanenceMod implements ModInitializer {
     Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "green_crystal"), GREEN_CRYSTAL);
     Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "red_crystal"), RED_CRYSTAL);
     Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "black_crystal"), BLACK_CRYSTAL);
-    //blockItems
+    Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "block_of_bitumen"), BLOCK_OF_BITUMEN);
+      //blockItems
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "obsidian_door"), new BlockItem(OBSIDIAN_DOOR, new Item.Settings().group(ItemGroup.REDSTONE)));
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "stone_door"), new BlockItem(STONE_DOOR, new Item.Settings().group(ItemGroup.REDSTONE)));
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "andesite_door"), new BlockItem(ANDESITE_DOOR, new Item.Settings().group(ItemGroup.REDSTONE)));
@@ -228,5 +230,7 @@ public class PermanenceMod implements ModInitializer {
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "green_crystal"), new BlockItem(GREEN_CRYSTAL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_crystal"), new BlockItem(RED_CRYSTAL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "black_crystal"), new BlockItem(BLACK_CRYSTAL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+    Registry.register(Registry.ITEM, new Identifier(MOD_ID, "block_of_bitumen"), new BlockItem(BLOCK_OF_BITUMEN, new Item.Settings().group(ItemGroup.REDSTONE)));
+
   }
 }
