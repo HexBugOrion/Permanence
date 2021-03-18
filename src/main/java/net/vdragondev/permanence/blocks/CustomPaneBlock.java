@@ -1,5 +1,6 @@
 package net.vdragondev.permanence.blocks;
 
+import net.minecraft.block.HoneyBlock;
 import net.minecraft.block.PaneBlock;
 
 public class CustomPaneBlock extends PaneBlock {

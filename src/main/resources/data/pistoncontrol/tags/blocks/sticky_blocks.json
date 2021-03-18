@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "permanence:block_of_bitumen",
+    "minecraft:slime_block",
+    "minecraft:honey_block"
+  ]
+}

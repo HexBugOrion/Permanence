@@ -90,7 +90,7 @@ public class PermanenceMod implements ModInitializer {
   public static final Block GREEN_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.GREEN).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
   public static final Block RED_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.RED).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
   public static final Block BLACK_CRYSTAL = new GlassBlock(FabricBlockSettings.of(Material.GLASS, MaterialColor.BLACK).strength(0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque().breakByTool(FabricToolTags.PICKAXES).requiresTool());
-  public static final Block BLOCK_OF_BITUMEN = new BitumenBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT, MaterialColor.BLACK).strength(0,0).slipperiness(0.1f).sounds(BlockSoundGroup.SLIME));
+  public static final Block BLOCK_OF_BITUMEN = new BitumenBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT, MaterialColor.BLACK).strength(0,0).slipperiness(1.0f).sounds(BlockSoundGroup.SLIME));
 
   //blockEntities
 	public static final BlockEntityType QUERN_TYPE;
@@ -231,6 +231,5 @@ public class PermanenceMod implements ModInitializer {
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_crystal"), new BlockItem(RED_CRYSTAL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "black_crystal"), new BlockItem(BLACK_CRYSTAL, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
     Registry.register(Registry.ITEM, new Identifier(MOD_ID, "block_of_bitumen"), new BlockItem(BLOCK_OF_BITUMEN, new Item.Settings().group(ItemGroup.REDSTONE)));
-
   }
 }
